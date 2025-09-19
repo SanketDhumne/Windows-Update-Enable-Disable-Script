@@ -40,25 +40,27 @@ Screenshots
 Script Menu
 
 This is the main menu when you run the script:
-
-
-
-Disable Mode
-
-When disabling Windows Update, the script stops services, disables tasks, and kills Medic:
-
+### Script Menu
+![Script Menu - main options](images/menu_screenshot.png)
 
 
 Enable Mode
 
 When enabling Windows Update, the services and tasks are restored:
+### Enable Mode
+![Enable Mode - starts services and enables tasks](images/enable_screenshot.png)
 
+
+Disable Mode
+
+When disabling Windows Update, the script stops services, disables tasks, and kills Medic:
+### Disable Mode
+![Disable Mode - stops services and kills Medic](images/disable_screenshot.png)
 
 
 Registry Permissions for WaaSMedicSvc
 
-Before the script can fully disable Medic, you must take ownership and grant Full Control:
-
+Before the script can fully disable Medic, you must take ownership and grant Full Control.
 
 
 
@@ -104,18 +106,23 @@ Before the script can fully disable Windows Update Medic Service, you must take 
 2. Navigate to:
 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
+### Registry - Screenshot Reference
+![Registry Screenshot](images/registry_screenshot.png)
 
 
 3. Right-click the WaaSMedicSvc key → Permissions → Advanced.
+### Registry Permissions - Advanced Tab
+![Registry Permissions - Advanced](images/registry_advanced_screenshot.png)
 
 
-4. Change Owner from TrustedInstaller to your Administrators account.
+4.Change Owner from TrustedInstaller to your Administrators account.
+### Registry Permissions - Owner Change
+![Registry Permissions - Owner](images/registry_owner_screenshot.png)
+
+6. Check Replace owner on subcontainers and objects → Apply.
 
 
-5. Check Replace owner on subcontainers and objects → Apply.
-
-
-6. Grant your admin account Full Control → Apply → OK.
+7. Grant your admin account Full Control → Apply → OK.
 
 
 

@@ -7,6 +7,7 @@ REM      wuauserv    - Windows Update
 REM      UsoSvc      - Update Orchestrator Service
 REM      WaaSMedicSvc- Windows Update Medic Service (via registry + kill)
 REM      UpdateOrchestrator Scheduled Tasks - disabled/enabled automatically
+REM      BITS    - Background Intelligent Transfer Service
 REM ==========================================================
 
 :MENU
@@ -37,6 +38,8 @@ sc config wuauserv start= demand
 sc start wuauserv
 sc config UsoSvc start= demand
 sc start UsoSvc
+sc start BITS
+sc config BITS start= demand
 
 REM Enable WaaSMedicSvc via registry (Start=3 Manual)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 3 /f
@@ -60,6 +63,8 @@ sc stop UsoSvc
 sc config UsoSvc start= disabled
 sc stop wuauserv
 sc config wuauserv start= disabled
+sc stop BITS
+sc config BITS start=disabled
 
 REM Disable WaaSMedicSvc via registry (Start=4 Disabled)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 4 /f

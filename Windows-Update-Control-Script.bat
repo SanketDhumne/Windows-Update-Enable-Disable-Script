@@ -40,6 +40,8 @@ sc config UsoSvc start= demand
 sc start UsoSvc
 sc start BITS
 sc config BITS start= demand
+sc config msiserver start= demand
+sc start msiserver
 
 REM Enable WaaSMedicSvc via registry (Start=3 Manual)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 3 /f
@@ -65,6 +67,7 @@ sc stop wuauserv
 sc config wuauserv start= disabled
 sc stop BITS
 sc config BITS start=disabled
+sc stop msiserver
 
 REM Disable WaaSMedicSvc via registry (Start=4 Disabled)
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v Start /t REG_DWORD /d 4 /f
